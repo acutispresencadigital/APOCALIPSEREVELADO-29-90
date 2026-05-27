@@ -78,7 +78,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ faq, index }) => {
 };
 
 export default function App() {
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
+  const [timeLeft, setTimeLeft] = useState(300);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -93,16 +93,13 @@ export default function App() {
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
-  const [checkoutUrl, setCheckoutUrl] = useState("https://pay.cakto.com.br/3ba47md_870528");
+  const [checkoutUrl, setCheckoutUrl] = useState("https://pay.cakto.com.br/camcqv2");
   
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const baseUrl = "https://pay.cakto.com.br/3ba47md_870528";
+      const baseUrl = "https://pay.cakto.com.br/camcqv2";
       const params = new URLSearchParams(window.location.search);
-      
-      // Preserve existing UTMs and add identification
       params.set("src", "lp2");
-      
       const finalUrl = `${baseUrl}?${params.toString()}`;
       setCheckoutUrl(finalUrl);
     }
@@ -116,11 +113,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans bg-celestial-white text-sacred-black selection:bg-divine-gold selection:text-white relative">
-      {/* Background celestial effect */}
       <div className="fixed inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-from)_0%,_transparent_50%)] from-white to-transparent" />
       <div className="fixed inset-0 pointer-events-none -z-10 cloud-effect" />
 
-      {/* Header Countdown */}
       <div className="fixed top-0 w-full z-50 bg-brand py-3 md:py-4 shadow-[0_4px_25px_rgba(220,38,38,0.3)]">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-3 md:gap-6">
           <div className="flex items-center gap-2 text-white font-extrabold text-[11px] md:text-lg uppercase tracking-tight text-center">
@@ -134,9 +129,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Hero Section */}
       <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 overflow-hidden border-b border-divine-gold/10">
-        {/* Imagem Responsiva (Full Width) */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -144,15 +137,12 @@ export default function App() {
           className="w-full mb-10"
         >
           <a href={checkoutUrl} onClick={trackCheckout} className="block w-full cursor-pointer">
-            {/* VERSÃO MOBILE: Imagem vertical/quadrada */}
             <img 
               src="https://i.ibb.co/3YdxDgwS/BANNER-SITE-1.webp" 
               alt="Apocalipse Mobile" 
               className="block md:hidden w-full h-auto"
               referrerPolicy="no-referrer"
             />
-            
-            {/* VERSÃO DESKTOP: Imagem horizontal */}
             <img 
               src="https://i.ibb.co/p6pDyDKm/BANNER-SITE-PC.webp" 
               alt="Apocalipse Desktop" 
@@ -163,7 +153,6 @@ export default function App() {
         </motion.div>
 
         <div className="max-w-4xl mx-auto px-4 text-center">
-          {/* HEADLINE MOBILE */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,7 +162,6 @@ export default function App() {
             Entenda o <span className="text-brand">Apocalipse</span> de forma simples, clara e baseada na Bíblia
           </motion.h1>
 
-          {/* HEADLINE DESKTOP */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -183,7 +171,6 @@ export default function App() {
             Entenda o <span className="text-brand">Apocalipse</span> de forma simples, <br /> clara e baseada na Bíblia
           </motion.h1>
 
-          {/* SUBHEADLINE MOBILE */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -191,11 +178,10 @@ export default function App() {
             className="md:hidden mb-8 space-y-2"
           >
             <p className="text-lg text-sacred-blue font-bold leading-tight">
-              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand">R$19,90</span>.
+              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand">R$29,90</span>.
             </p>
           </motion.div>
 
-          {/* SUBHEADLINE DESKTOP */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -203,11 +189,10 @@ export default function App() {
             className="hidden md:block mb-12 max-w-3xl mx-auto text-balance"
           >
             <p className="text-2xl text-sacred-blue font-bold leading-tight">
-              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand font-bold">R$19,90</span>.
+              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand font-bold">R$29,90</span>.
             </p>
           </motion.div>
 
-          {/* Bullets */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -238,7 +223,7 @@ export default function App() {
               className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-full aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-                ACESSAR AGORA POR R$19,90
+                ACESSAR AGORA POR R$29,90
                 <ArrowRight size={24} className="shrink-0" />
               </div>
               <div className="text-xs md:text-sm font-medium opacity-90">Pagamento Único • Acesso Vitalício</div>
@@ -247,7 +232,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Ideal para você checklist */}
       <section className="py-12 md:py-20 px-4 bg-celestial-sand border-b border-divine-gold/10">
         <div className="max-w-2xl mx-auto">
           <motion.h2 
@@ -295,7 +279,7 @@ export default function App() {
               className="w-full inline-flex flex-col items-center justify-center gap-1 px-8 py-6 bg-brand hover:bg-brand-hover text-white rounded-full aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-                ACESSAR AGORA POR R$19,90
+                ACESSAR AGORA POR R$29,90
                 <ArrowRight size={24} className="shrink-0" />
               </div>
               <div className="text-xs md:text-sm font-medium opacity-90">Pagamento Único • Acesso Vitalício</div>
@@ -304,7 +288,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Countdown Promo Section */}
       <section className="py-12 md:py-20 px-4 bg-white border-b border-divine-gold/10 text-center relative overflow-hidden">
         <div className="absolute inset-0 cloud-effect pointer-events-none opacity-[0.03]" />
         <div className="max-w-4xl mx-auto relative z-10">
@@ -341,7 +324,7 @@ export default function App() {
                 className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-full aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center max-w-full"
               >
                 <div className="flex items-center gap-2 text-xl md:text-3xl font-extrabold uppercase tracking-tight">
-                  ACESSAR AGORA POR R$19,90 
+                  ACESSAR AGORA POR R$29,90
                   <ArrowRight size={24} className="shrink-0" />
                 </div>
                 <div className="text-xs md:text-sm font-medium opacity-90">Pagamento Único • Acesso Vitalício</div>
@@ -351,11 +334,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* Final Offer Summary */}
       <section className="py-12 md:py-20 px-4 relative overflow-hidden" id="oferta">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Visual Column */}
             <div className="space-y-4 md:sticky md:top-24">
               <a href={checkoutUrl} onClick={trackCheckout} className="block group">
                 <div className="wine-card p-1 relative overflow-hidden border-divine-gold/30 shadow-[0_20px_60px_rgba(201,168,76,0.15)] group">
@@ -373,7 +354,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* List and Pricing Column */}
             <div className="space-y-6">
               <div className="text-center">
                 <h2 className="font-sans text-4xl md:text-6xl font-extrabold uppercase tracking-tight mb-8 leading-[1.1] text-sacred-black">
@@ -412,13 +392,12 @@ export default function App() {
                 ))}
               </div>
 
-              {/* Price Reveal */}
               <div className="wine-card p-8 bg-gradient-to-b from-celestial-sand/50 to-white border-brand/20 aggressive-shadow text-center">
                 <div className="space-y-1 mb-6">
                   <div className="text-sacred-black text-lg font-bold">De <span className="line-through decoration-brand">R$ 111,00</span> por apenas:</div>
                   <div className="text-brand text-7xl md:text-8xl font-extrabold font-sans tracking-tight drop-shadow-[0_0_30px_rgba(220,38,38,0.15)] flex items-baseline justify-center">
                     <span className="text-4xl mr-1">R$</span>
-                    19<span className="text-4xl text-brand/80">,90</span>
+                    29<span className="text-4xl text-brand/80">,90</span>
                   </div>
                   <div className="text-sacred-black/50 text-xs font-bold uppercase tracking-normal mt-1 font-sans">
                     Pague no Pix, Cartão ou Boleto
@@ -442,7 +421,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-12 md:py-24 px-4 bg-celestial-off border-t border-divine-gold/10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
@@ -456,26 +434,11 @@ export default function App() {
 
           <div className="space-y-4">
             {[
-              {
-                q: "É livro físico ou digital?",
-                a: "É material digital. Você recebe acesso online após a confirmação do pagamento."
-              },
-              {
-                q: "Como recebo o acesso?",
-                a: "O acesso é liberado após o pagamento no e-mail informado na compra."
-              },
-              {
-                q: "Posso ler pelo celular?",
-                a: "Sim. Você pode acessar pelo celular, computador ou tablet."
-              },
-              {
-                q: "É pagamento único?",
-                a: "Sim. Você paga uma vez e recebe o acesso à coleção."
-              },
-              {
-                q: "Preciso ter conhecimento avançado da Bíblia?",
-                a: "Não. A coleção foi organizada para uma leitura simples e objetiva."
-              }
+              { q: "É livro físico ou digital?", a: "É material digital. Você recebe acesso online após a confirmação do pagamento." },
+              { q: "Como recebo o acesso?", a: "O acesso é liberado após o pagamento no e-mail informado na compra." },
+              { q: "Posso ler pelo celular?", a: "Sim. Você pode acessar pelo celular, computador ou tablet." },
+              { q: "É pagamento único?", a: "Sim. Você paga uma vez e recebe o acesso à coleção." },
+              { q: "Preciso ter conhecimento avançado da Bíblia?", a: "Não. A coleção foi organizada para uma leitura simples e objetiva." }
             ].map((faq, i) => (
               <FAQItem key={i} faq={faq} index={i} />
             ))}
@@ -494,7 +457,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-10 md:py-16 px-4 border-t border-divine-gold/10 bg-sacred-blue relative overflow-hidden shadow-[0_-10px_50px_rgba(26,26,46,0.3)]">
         <div className="absolute top-0 left-0 w-full h-1 bg-divine-gold/30" />
         <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -520,4 +482,3 @@ export default function App() {
     </div>
   );
 }
-
