@@ -14,16 +14,12 @@
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}
-
     (window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-
     const allowedHosts = [
       "apocalipserevelado-b.vercel.app",
-      "ais-dev-fxurf2kdgdwradcituuxus-633159287990.us-east1.run.app", // Added current dev host for testing if needed, or I can stick strictly to user list
-      "ais-pre-fxurf2kdgdwradcituuxus-633159287990.us-east1.run.app"
+      "apocalipsereveladocolecao.vercel.app"
     ];
-
     if (allowedHosts.includes(window.location.hostname)) {
       fbq('init', '2180733322737992');
       fbq('track', 'PageView');
@@ -42,4 +38,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
